@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: cobain
-  name: cobain
+    app: lp
+  name: lp
 spec:
   replicas: 3
   selector:
