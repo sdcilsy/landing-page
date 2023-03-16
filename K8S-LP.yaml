@@ -10,20 +10,20 @@ spec:
   selector:
     matchLabels:
       app: lp
-   strategy: {}
-   template:
-      metadata:
+  strategy: {}
+  template:
+    metadata:
       creationTimestamp: null
       labels:
-         app: lp
-      spec:
-       containers:
+        app: lp
+    spec:
+      containers:
       - image: ikanpaus/landingpage:v4
         name: landing-page
         ports:
         - containerPort: 80
         resources: {}
- status: {}
+status: {}
 
 apiVersion: v1
 kind: Service
@@ -38,7 +38,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-     app: lp
+    app: lp
   type: LoadBalancer 
 status:
   loadBalancer: {}
