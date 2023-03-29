@@ -1,9 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    app: lp
   name: lp
 spec:
   replicas: 3
@@ -12,34 +9,31 @@ spec:
       app: lp
   strategy: {}
   template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: lp
-    spec:
-      containers:
-      - image: ikanpaus/landingpage:v4
-        name: landing-page
-        ports:
-        - containerPort: 80
-        resources: {}
+      metadata:
+        labels:
+          app: lp
+      spec:
+       containers:
+       - image: ikanpaus/landingpage:v4
+         name: landing-page
+         ports:
+         - containerPort: 80
+         resources: {}
 status: {}
+
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
-  labels:
-    app: lp
-  name: lp
+  name: lpserpis
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: lp
+     app: lp
   type: LoadBalancer 
 status:
   loadBalancer: {}
