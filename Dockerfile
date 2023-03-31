@@ -1,4 +1,4 @@
-FROM nginx:stable-perl
+FROM nginx:latest
 
 COPY . /usr/share/nginx/html
 
