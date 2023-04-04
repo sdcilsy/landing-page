@@ -2,7 +2,7 @@ version: 2.1
 executors:
   my-custom-executor:
     docker:
-      - image: cimg/base:stable
+      - image: docker:24.0.0-beta.1-cli-alpine3.17
         auth:
           # ensure you have first added these secrets
           # visit app.circleci.com/settings/project/github/Nifleheim/landing-page/environment-variables
@@ -14,7 +14,7 @@ jobs:
     executor: my-custom-executor
     steps:
       - checkout
-      - run: kubectl apply -f 'K8S-LP.yaml'
+      - run: kubectl apply -f K8S-LP.yaml
 
 workflows:
   my-custom-workflow:
