@@ -14,8 +14,7 @@ jobs:
     executor: my-custom-executor
     steps:
       - checkout
-      - run: |
-          # echo Hello, World!
+      - run: kubectl apply -f 'K8S-LP.yaml'
 
 workflows:
   my-custom-workflow:
