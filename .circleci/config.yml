@@ -1,15 +1,23 @@
 version: 2.1
-
-jobs:
-  build:
-    working_directory: ~/circleci
+executors:
+  my-custom-executor:
     docker:
-      - image: "alpine:3.17"
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/Nifleheim/landing-page/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  lp:
+
+    executor: my-custom-executor
     steps:
       - checkout
-      - run: kubectl apply -f K8S-LP.yaml
+      - run: |
+          # echo Hello, World!
 
 workflows:
-  build_and_test:
+  my-custom-workflow:
     jobs:
-      - build
+      - lp
