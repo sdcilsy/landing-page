@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/circleci
+    docker:
+      - image: "alpine:3.17"
+    steps:
+      - checkout
+      - run: kubectl apply -f K8S-LP.yaml
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
