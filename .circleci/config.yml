@@ -1,8 +1,8 @@
 version: 2.1
 executors:
   my-custom-executor:
-    docker:
-      - image: nginx:latest
+    node:
+      - image: node:gallium-alpine3.17
         auth:
           # ensure you have first added these secrets
           # visit app.circleci.com/settings/project/github/Nifleheim/landing-page/environment-variables
